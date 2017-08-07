@@ -147,6 +147,8 @@ def crawl_site(name, url_format, extractor, offset):
 def crawl_all(start_time):
     """Crawls all the sites in the config, appending the name of the site to each row, writing them to
     a csv"""
+# TODO refactor out the state writing into an outer function
+# TODO do each site at the same time in parallel
     rows = []
     for cfg in CONFIG:
         logging.info("starting to crawl %s rss", cfg.name)
@@ -225,6 +227,8 @@ def main():
 # parse into words, normalize.
 # is there a library for this shit?
 
+# TODO: set up error reporting somehow
+# TODO: set up cron
 
 if __name__ == "__main__":
     main()
